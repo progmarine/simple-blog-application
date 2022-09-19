@@ -1,0 +1,43 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.7'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'coding'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	implementation 'org.springframework.security:spring-security-core:5.6.3'
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.6.7'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'mysql:mysql-connector-java'
+	implementation 'org.projectlombok:lombok'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation "org.springframework.security:spring-security-web"
+	implementation 'org.springframework.security:spring-security-config:5.6.3'
+	implementation 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.6.6'
+	implementation 'org.springframework.security:spring-security-test:5.6.3'
+	implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
+	implementation "org.springframework.session:spring-session-jdbc"
+
+//	implementation 'javax.xml.bind:jaxb-api'
+//	implementation 'com.sun.xml.bind:jaxb-core'
+//	implementation 'com.sun.xml.bind:jaxb-impl'
+}
+dependencyManagement {
+	imports {
+		mavenBom 'org.springframework:spring-framework-bom:5.3.19'
+	}
+}
+tasks.named('test') {
+	useJUnitPlatform()
+}
